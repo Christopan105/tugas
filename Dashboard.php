@@ -4,7 +4,7 @@ include("koneksi.php");
 if (!isset($_SESSION['email'])) {
   header("location:index.php");
 }
-echo $_SESSION['email'];
+// echo $_SESSION['email'];
 ?>
 
 <!DOCTYPE html>
@@ -38,6 +38,12 @@ echo $_SESSION['email'];
           </a>
         </li>
         <li>
+          <a href="table.php">
+            <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+            <span class="title">Table</span>
+          </a>
+        </li>
+        <li>
           <a href="form.php">
             <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
             <span class="title">Form</span>
@@ -45,6 +51,12 @@ echo $_SESSION['email'];
         </li>
         <li>
 
+          <a href=".php">
+            <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+            <span class="title">Data Table</span>
+          </a>
+        </li>
+        <li>
           <a href="pengguna.php">
             <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
             <span class="title">Pengguna</span>

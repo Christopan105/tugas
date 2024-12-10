@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatitble" content="IE=Edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>
-    Table
+    Pengguna
   </title>
   <!-- Stylesheet -->
   <link rel="stylesheet" href="admin.css" />
@@ -122,34 +122,32 @@
       </div>
 
       <div class="details">
-        <div class="recentOrders">
-          <!-- ======== detail Table ========= -->
-          <link rel="stylesheet"
-            href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css">
-          <div class="detailTable">
-
-            <div class="recentTable">
-              <div class="titleTable">
-                <h2>Responsive Table</h2>
-                <a href="form.php" class="btn">Add New</a>
-              </div>
-              <table id="myTable">
-                <thead>
-                  <tr>
-                    <th style="text-align:center;">No</th>
-                    <th style="text-align:center;">Name</th>
-                    <th style="text-align:center;">Telepon</th>
-                    <th style="text-align:center;">Alamat</th>
-                    <th style="text-align:center;">Option</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
-                  include "koneksi.php";
-                  $no = 1;
-                  $data = mysqli_query($conn, "SELECT * FROM tbl_user");
-                  while ($show = mysqli_fetch_array($data)) {
-                    echo "<tr>
+        <!-- ======== detail Table ========= -->
+        <link rel="stylesheet"
+          href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css">
+        <div class="detailTable">
+          <div class="recentTable">
+            <div class="titleTable">
+              <h2>Responsive Table</h2>
+              <a href="form.php" class="btn">Add New</a>
+            </div>
+            <table id="myTable">
+              <thead>
+                <tr>
+                  <th style="text-align:center;">No</th>
+                  <th style="text-align:center;">Name</th>
+                  <th style="text-align:center;">Telepon</th>
+                  <th style="text-align:center;">Alamat</th>
+                  <th style="text-align:center;">Option</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+                include "koneksi.php";
+                $no = 1;
+                $data = mysqli_query($conn, "SELECT * FROM tbl_user");
+                while ($show = mysqli_fetch_array($data)) {
+                  echo "<tr>
                     <td>" . $no++ . "</td>
                     <td>" . $show["nama"] . "</td>
                     <td>" . $show["telepon"] . "</td>
@@ -167,48 +165,11 @@
                     </td>
                     </tr>
                     ";
-                  } ?>
-                </tbody>
-
-
-            </div>
+                } ?>
+              </tbody>
           </div>
-
-          <thead>
-            <tr>
-              <th>No</th>
-              <th>Name</th>
-              <th>Status</th>
-              <th>Option</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php
-            include "koneksi.php";
-            $no = 1;
-            $data = mysqli_query($conn, "SELECT * FROM account");
-            while ($show = mysqli_fetch_array($data)) {
-              echo "<tr>
-                      <td>" . $no++ . "</td>
-                      <td>" . $show["email"] . "</td>
-                      <td>" . $show["akses"] . "</td>
-                      <td>
-                      <a href='#' class='btn-edit'
-                      ><ion-icon name='create-outline'></ion-icon
-                      ></a>
-                      |
-                      <a href='#' class='btn-delete'
-                      ><ion-icon name='trash-outline'></ion-icon
-                      ></a>
-                      </td>
-                      </tr>
-                      ";
-            }
-            ?>
-          </tbody>
-          </table>
-
         </div>
+        </table>
       </div>
     </div>
 
@@ -240,16 +201,4 @@
 </html>
 <?php
 
-if (isset($_GET['page'])) {
-  $page = $_GET['page'];
-  if ($page == 'dashboard') {
-    include "dashboard.php";
-  } elseif ($page == 'form') {
-    include 'form.php';
-  } elseif ($page == 'tabelbiasa') {
-    include "tabel.php";
-  }
-} else {
-  include "dashboard.php";
-}
 ?>
